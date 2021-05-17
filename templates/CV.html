@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel ="stylesheet" type="text/css" href ="../static/css/CV.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV-Lior Rasuli</title>
+    <script src="{{ url_for('index_js') }}"></script>
+
+</head>
+<body onload="aboutMe()">
+<div class="grid-container">
+
+    <div class="header">
+        <h1 id="my-name" class="header">Lior Rasuli</h1>
+        <h1 id="profession" class="header">Industrial Engineering and Management</h1>
+        <img src="../static/images/pasport%20pic.png" id="facepic" class="header" alt="pasport">
+    </div><!--close div class="header"-->
+
+    <div class="subject">
+        <h3 id="who-am-i" class="subject" onclick="aboutMe()">Who Am I?</h3>
+        <h3 id="work-experience" class="subject" onclick="work()">Work Experience</h3>
+        <h3 id="education" class="subject" onclick="education()">Education </h3>
+        <h3 id="skillset" class="subject" onclick="skills()">Skillset </h3>
+        <h3 id="hobbies" class="subject" onclick="hobbies()">Hobbies & Interest </h3>
+    </div><!--close div class="subject"-->
+
+    <div class="details">
+        <p id="box-1" class="details">box1</p>
+        <img src="../static/images/Poland.jpg" id="pic1" class="details" alt="Poland">
+        <p id="box-2" class="details">box2</p>
+        <img src="../static/images/BGU%20radio.jpg" id="pic2" class="details" alt="radio">
+        <p id="box-3" class="details">box3</p>
+        <img src="../static/images/JCH.jpg" id="pic3" class="details" alt="JCH">
+        <p id="box-4" class="details">box4</p>
+        <img src="../static/images/KabalatShabatCamp.jpg" id="pic4" class="details" alt="KabalatShabatCamp">
+        <p id="box-5" class="details">box5</p>
+        <img src="../static/images/purim.jpeg" id="pic5" class="details" alt="purim">
+    </div><!--close div class="details"-->
+
+    <div class="footer">
+        <h4 id="foot-1" class="footer">+972-54-123-4567</h4>
+        <h4 id="foot-2" class="footer" onclick="facebookMe()">Facebook</h4>
+        <h4 id="foot-3" class="footer">liorras@post.bgu.ac.il</h4>
+        <h4 id="foot-4" class="footer" onclick="contactMe()">CONTACT ME!</h4>
+    </div><!--close div class="footer"-->
+
+    <div class="server-side">
+        <h2 id="lecture8" class="server-side" onclick="contactList()">contact list</h2>
+        <h2 id="lecture9" class="server-side">thank you {{ name | default('stranger', true) }} for visiting!</h2>
+    </div><!--close div class="server-side"-->
+
+</div><!--close div class="grid-container"-->
+
+</body>
+</html>
+
