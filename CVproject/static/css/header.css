@@ -1,0 +1,77 @@
+:root{ /*change the colors variables name*/
+    --manatee: #8e9aafff;
+    --languid-lavender: #cbc0d3ff;
+    --pale-pink: #efd3d7ff;
+    --pale-purple-pantone: #feeafaff;
+    --lavender-web: #dee2ffff;
+}
+* {
+    text-align: center;
+    box-sizing: border-box;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.header{
+    display: grid;
+    grid-template-columns: auto auto auto;;
+    grid-gap: 10px;
+    grid-area: 1 / 1 / span 3 / span 3;
+    background-color: var(--pale-pink);
+    color: black;
+    font-family: Arial Rounded MT;
+}
+
+#my-name.header{
+    grid-area: 1 / 1 / span 3 / span 1;
+    font-size: 70px;
+    margin: auto;
+    padding: 10px;
+}
+#profession.header{
+    grid-area: 1 / 3 / span 3 / span 1;
+    font-size: 50px;
+    margin: auto;
+    padding: 10px;
+}
+#facepic.header{
+    grid-area: 1 / 2 / span 3 / span 1;
+    border: 7px double var(--manatee);
+    border-radius: 200px;
+}
+
+
+/*--------------------------------Small Screens--------------------------------------------------------------------*/
+
+@media only screen and (max-width:1100px) {
+    .header {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 10px;
+        grid-area: 1 / 1 / span 2 / span 3;
+        color: black;
+        font-family: Arial Rounded MT;
+    }
+
+    #my-name.header {
+        grid-area: 1 / 1 / span 2 / span 1;
+        font-size: 50px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    #profession.header {
+        grid-area: 1 / 3 / span 2 / span 1;
+        font-size: 30px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    #facepic.header {
+        grid-area: 1 / 2 / span 2 / span 1;
+        border: 7px double var(--manatee);
+        border-radius: 200px;
+    }
+}

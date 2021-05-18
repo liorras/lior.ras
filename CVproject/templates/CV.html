@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel ="stylesheet" type="text/css" href ="../static/css/CV.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CV.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV-Lior Rasuli</title>
-    <script src="{{ url_for('index_js') }}"></script>
-
+    <script type="text/javascript" src="{{ url_for('static', filename='js/CV.js') }}"></script>
 </head>
 <body onload="aboutMe()">
 <div class="grid-container">
 
-    <div class="header">
-        <h1 id="my-name" class="header">Lior Rasuli</h1>
-        <h1 id="profession" class="header">Industrial Engineering and Management</h1>
-        <img src="../static/images/pasport%20pic.png" id="facepic" class="header" alt="pasport">
-    </div><!--close div class="header"-->
+    {% include 'header.html' %}
 
     <div class="subject">
         <h3 id="who-am-i" class="subject" onclick="aboutMe()">Who Am I?</h3>
@@ -39,16 +34,16 @@
 
     <div class="footer">
         <h4 id="foot-1" class="footer">+972-54-123-4567</h4>
-        <h4 id="foot-2" class="footer" onclick="facebookMe()">Facebook</h4>
+        <h4 id="foot-2" class="footer"><a href="{{ url_for('facebook_link') }}">Facebook</a></h4>
         <h4 id="foot-3" class="footer">liorras@post.bgu.ac.il</h4>
-        <h4 id="foot-4" class="footer" onclick="contactMe()">CONTACT ME!</h4>
+        <h4 id="foot-4" class="footer"><a href="{{ url_for('contact_me') }}">CONTACT ME!</a></h4>
     </div><!--close div class="footer"-->
 
     <div class="server-side">
-        <h2 id="lecture8" class="server-side" onclick="contactList()">contact list</h2>
-        <h2 id="lecture9" class="server-side">thank you {{ name | default('stranger', true) }} for visiting!</h2>
+        <h2 id="lecture8" class="server-side"><a href="{{ url_for('list_of_contacts') }}">contact list</a></h2>
+        <h2 id="lecture9" class="server-side">thank you {{ name | default('visitor', true) }} for stopping by!</h2>
+        <h2 id="assignment8" class="server-side"><a href="{{ url_for('assignment_8') }}">Assignment 8</a></h2>
     </div><!--close div class="server-side"-->
-
 </div><!--close div class="grid-container"-->
 
 </body>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>assignment8</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CV.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/CV.js') }}"></script>
+</head>
+<body style="background-color:lavender;">
+    {% include 'header.html' %}
+    <h1 class="assignment8">This is assignment8</h1>
+
+    {% if now < 12 %}
+        {% set greeting = "Good morning" %}
+    {% elif now < 18 %}
+        {% set greeting = "Good afternoon" %}
+    {% else %}
+        {% set greeting = "Good night" %}
+    {% endif %}
+    <h2 class="assignment8">{{ greeting }} {{ name }}</h2>
+<br><br><br><br><hr>
+    <h3 class="assignment8">Favorite rock artists:</h3>
+    <ul class="assignment8">
+        {% for band in bands %}
+            {% if band.genre =='rock' %}
+                <li>{{ band.bandname }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+<br><br><br><br><br><br><br><br><br>
+    {% extends "footer1.html" %}
+    {% block footer1 %}
+        {{ super() }}
+        <h4 class="assignment8">keep on rocking!</h4>
+    {% endblock %}
+
+</body>
+</html>

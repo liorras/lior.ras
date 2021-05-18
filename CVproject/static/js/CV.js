@@ -11,7 +11,6 @@ var job_3="2015-2016 Cashier at 'kley-zemer'-Musical Instruments shop-Dizengoff 
 var job_4="2013 Assistant at an afternoon child care facility: Responsibility for the children, ability to lead children, receiving group and individual attention.";
 var job_5="2008-2012 summer job: Assistance in bookkeeping for an accounting firm. Sorting and receiving data, bank adjustments of suppliers and customers."
 
-/*var BGUradioLink="https://anchor.fm/bgu-radio/episodes/--eb9bp3";*/
 var education_1="2018-2022 .B.Sc. Industrial Engineering and Management Degree, majoring Information Systems. Current average grade:__";
 var education_2="2020 Graduate of a podcast editing course at BGU Radio. editing a musical podcast which focusing on cover versions of well-known songs.";
 var education_3="BGU-radio - Discover podcast";
@@ -46,8 +45,8 @@ document.getElementById ("pic2").style.display = 'none';
 document.getElementById ("pic3").style.display = 'none';
 document.getElementById ("pic4").style.display = 'none';
 document.getElementById ("pic5").style.display = 'none';
-
 }
+
 function work(){
 document.getElementById ("box-1").innerHTML =job_1;
 document.getElementById ("box-2").innerHTML =job_2;
@@ -64,8 +63,8 @@ document.getElementById ("pic2").style.display = 'none';
 document.getElementById ("pic3").style.display = 'none';
 document.getElementById ("pic4").style.display = 'none';
 document.getElementById ("pic5").style.display = 'none';
-
 }
+
 function education(){
 document.getElementById ("box-1").innerHTML =education_1;
 document.getElementById ("box-2").innerHTML =education_2;
@@ -82,8 +81,9 @@ document.getElementById ("pic2").style.display = 'none';
 document.getElementById ("pic3").style.display = 'none';
 document.getElementById ("pic4").style.display = 'none';
 document.getElementById ("pic5").style.display = 'none';
-
+window.open("https://anchor.fm/bgu-radio/episodes/--eb9bp3", "_blank");
 }
+
 function skills(){
 document.getElementById ("box-1").innerHTML =skill_1;
 document.getElementById ("box-2").innerHTML =skill_2;
@@ -100,8 +100,8 @@ document.getElementById ("pic2").style.display = 'none';
 document.getElementById ("pic3").style.display = 'none';
 document.getElementById ("pic4").style.display = 'none';
 document.getElementById ("pic5").style.display = 'none';
-
 }
+
 function hobbies(){
 document.getElementById ("box-1").innerHTML =hobbie_1;
 document.getElementById ("box-2").innerHTML =hobbie_2;
@@ -118,22 +118,15 @@ document.getElementById ("pic2").style.display = 'inline';
 document.getElementById ("pic3").style.display = 'inline';
 document.getElementById ("pic4").style.display = 'inline';
 document.getElementById ("pic5").style.display = 'inline';
-
 }
-function contactMe(){
+
+/*function contactMe(){
     window.open('../templates/contactMe.html', "_blank");
 }
 function facebookMe(){
     window.open("https://www.facebook.com/liorra/", "_blank");
 }
-/*function BGUradio(){
-    window.open("https://anchor.fm/bgu-radio/episodes/--eb9bp3", "_blank");
-}*/
-/*document.getElementById ("BGUradioLink").onclick=BGUradio();*/
-
-document.getElementById ("box-1").innerHTML =BGUradioLink;
-
 function contactList(){
     window.open("../templates/contactList.html", "_blank");
-}
+}*/
 
