@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>assignment9</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CV.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/assignment9.js') }}"></script>
+</head>
+<body style="background-color:lavender;">
+    {% include 'header.html' %}
+    <h1 class="assignment9">This is assignment9</h1>
+<br><br><br><br>
+
+{% block search_form %}
+<search_form>
+    <div class="assignment9">
+
+    {% if current_method=='GET' or 'POST' %}
+        {% if found_user==True %}
+            <h3 class="assignment9">current user is: {{ selected_user[0].first_name }} {{ selected_user[0].last_name }}</h3>
+        {% else %}
+            <h3 class="assignment9">users available are: </h3>
+            <ul class="assignment9">
+                {% for user in usersList %}
+                    <li>{{ user.first_name }} {{ user.last_name }} </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <form method="GET" action="/assignment9" class="assignment9">
+
+        <label for="first_name">First name:</label>
+        <input type="text" id="first_name" name="firstname"><br>
+
+        <label for="last_name">Last name:</label>
+        <input  type="text" id="last_name" name="lastname"><br>
+
+        <label for="email">email address:</label>
+        <input  type="email" id="email" name="email"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+</search_form>
+{% endblock %}
+
+    <br><br>
+{% block registration_form %}
+<registration_form>
+    <div class="assignment9">
+        {% if current_method=='GET' %}
+            <form method="POST" action="/assignment9" class="assignment9">
+                <label for="first_name">First name:</label>
+                <input type="text" id="first_name" name="firstname"><br>
+
+                <label for="last_name">Last name:</label>
+                <input  type="text" id="last_name" name="lastname"><br>
+
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required><br>
+
+                <label for="psw">Password</label>
+                <input type="password" name="password" id="psw" required><br>
+
+                <label >register here:</label>
+                <input type="submit" value="registration">
+            </form>
+        {% endif %}
+
+    </div>
+</registration_form>
+{% endblock %}
+
+    <form method="GET" action="/assignment9" class="assignment9">
+        <input type="submit" value="logout">
+    </form>
+
+    {% extends "footer1.html" %}
+    {% block footer1 %}
+        {% if current_method=='POST' %}
+            {{ super() }}
+        {% endif %}
+    {% endblock %}
+
+</body>
+</html>
