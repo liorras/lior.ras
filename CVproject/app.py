@@ -1,10 +1,11 @@
-from flask import Flask, url_for, render_template, redirect, request
+from flask import Flask, render_template, redirect, request
 from datetime import datetime
 from flask import session
+from flask import mysql
+from mysql import connector
 
 app = Flask(__name__)
 app.secret_key = '123'
-
 
 @app.route('/')
 def index():
@@ -95,6 +96,8 @@ def assignment_9():
                            user_firstname=user_firstname,
                            user_lastname=user_lastname)
 
+from pages.assignment10.assignment10 import assignment10
+app.register_blueprint(assignment10)
 
 if __name__ == '__main__':
     app.run(debug=True)

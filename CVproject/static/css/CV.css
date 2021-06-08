@@ -154,6 +154,7 @@ form.assignment9{
     font-size: 25px;
 }
 h1,h2,h3,h4,ul.assignment8,ul.assignment9{
+    color: black;
     float: left;
     padding: 15px;
     font-family: Calibri;

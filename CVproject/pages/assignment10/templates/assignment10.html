@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>assignment10</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CV.css') }}">
+</head>
+<body style="background-color:lavender;">
+    {% include 'header.html' %}
+    <h1 class="assignment9">This is assignment10</h1>
+    <h2 class="assignment9">Current action: {{ message }}</h2>
+
+    <br><br><br><br>
+
+    <h3 class="assignment9">add new user</h3><br>
+    <form method="POST" action="/insert_user">
+        <input name="first_name" type="text" placeholder="user's name">
+        <input name="last_name" type="text" placeholder="user's last name">
+        <input name="email" type="email" placeholder="user's email">
+        <input name="like_dogs" type="text" placeholder="like dogs?">
+        <input type="submit">
+    </form>
+
+    <br><br><br>
+
+    <h3 class="assignment9">delete user by id</h3><br>
+    <form method="POST" action="/delete_user">
+        <input name="id" type="number" placeholder="user's id">
+        <input type="submit">
+    </form>
+
+    <br><br><br>
+
+    <h3 class="assignment9">update existing user</h3><br>
+    <form method="POST" action="/update_user">
+        <input name="id" type="text" placeholder="user's id">
+        <input name="first_name" type="text" placeholder="user's name">
+        <input name="last_name" type="text" placeholder="user's last name">
+        <input name="email" type="email" placeholder="user's email">
+        <input name="like_dogs" type="text" placeholder="like dogs?">
+        <input type="submit">
+    </form>
+
+    <br><br><br>
+
+    <h3 class="assignment9">All users: </h3>
+    <ul class="assignment9">
+        {% for user in users %}
+            <li>ID: {{ user.id }} name: {{ user.first_name }} {{ user.last_name }}</li>
+        {%  endfor %}
+    </ul>
+</body>
+</html>
