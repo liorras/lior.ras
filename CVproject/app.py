@@ -1,11 +1,35 @@
 from flask import Flask, render_template, redirect, request
 from datetime import datetime
 from flask import session
+from flask import jsonify
 from flask import mysql
-from mysql import connector
+import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = '123'
+
+# ----------------------DATABASE CONNECTION --------------------#
+# --------------------------------------------------------------#
+def interact_db(query, query_type: str):
+    return_value = False
+    connection = mysql.connector.connect(host='localhost',
+                                         user='root',
+                                         password='root',
+                                         database='cv_schema')
+    cursor = connection.cursor(named_tuple=True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
 
 @app.route('/')
 def index():
@@ -98,6 +122,28 @@ def assignment_9():
 
 from pages.assignment10.assignment10 import assignment10
 app.register_blueprint(assignment10)
+
+@app.route("/assignment11/users")
+def assignment_11():
+    query = "select * from users"
+    query_result = interact_db(query=query, query_type='fetch')
+    response = "users table has ZERO attributes"
+    if len(query_result) != 0:
+        response = query_result
+    response = jsonify(response)
+    return response
+
+
+@app.route("/assignment11/users/selected", defaults={'user_id': 4})
+@app.route("/assignment11/users/selected/<int:user_id>")
+def assignment_11_select_user(user_id):
+    query = "select * from users where id='%s'" % user_id
+    query_result = interact_db(query=query, query_type='fetch')
+    response = "there is no such user, please enter another id, make it right this time"
+    if len(query_result) != 0:
+        response = query_result
+    response = jsonify(response)
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
